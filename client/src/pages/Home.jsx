@@ -1,13 +1,20 @@
 import bgImage from "images/landing-bg-morning.png";
 
 export default function Home() {
+  const onSubmit = (e) => {
+    e.preventDefault();
+    alert("yay");
+  };
   return (
     <div
       className="h-screen bg-cover bg-center bg-no-repeat flex flex-col space-y-10 items-center p-10"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <h1 className="text-5xl">Good Morning Alef!</h1>
-      <form action="">
+      <form
+        className="flex flex-col items-center space-y-6"
+        onSubmit={onSubmit}
+      >
         <section className="flex space-x-3">
           <div className="border rounded-md p-4 flex flex-col items-center space-y-5">
             <h2>
@@ -55,6 +62,9 @@ export default function Home() {
             </select>
           </div>
         </section>
+        <button className="border-blue-600 bg-blue-600 rounded-full py-2 px-6 text-white font-semibold">
+          SUBMIT
+        </button>
       </form>
     </div>
   );
