@@ -1,9 +1,28 @@
 import bgImage from "images/landing-bg-morning.png";
+import { useState } from "react";
+
+const formModel = {
+  id: {},
+  timeStamp: {},
+  feeling: {},
+  thoughts: {},
+  judgements: {},
+  need: {},
+};
 
 export default function Home() {
+  const [formData, setFormData] = useState(formModel);
   const onSubmit = (e) => {
     e.preventDefault();
-    alert("yay");
+    console.log(e);
+  };
+  const updateFormData = (e) => {
+    console.log(formData);
+    const field = e.target.name;
+    const value = e.target.value;
+    const newFormData = Object.assign(formModel, { [field]: value });
+    setFormData(newFormData);
+    console.log(formData);
   };
   return (
     <div
@@ -13,14 +32,14 @@ export default function Home() {
       <h1 className="text-5xl">Good Morning Alef!</h1>
       <form
         className="flex flex-col items-center space-y-6"
-        onSubmit={onSubmit}
+        onSubmit={() => setFormData()}
       >
         <section className="flex space-x-3">
           <div className="border rounded-md p-4 flex flex-col items-center space-y-5">
             <h2>
               In <em>one</em> word, what are you FEELING right now?
             </h2>
-            <select name="feeling" id="feeling">
+            <select name="feeling" id="feeling" onChange={updateFormData}>
               <option value="happy">Happy</option>
               <option value="angry">Angry</option>
               <option value="sad">Sad</option>
@@ -36,7 +55,7 @@ export default function Home() {
               placeholder="I think..."
               cols="20"
               rows="5"
-              maxlength="100"
+              maxLength="100"
             ></textarea>
           </div>
           <div className="border rounded-md p-4 flex flex-col items-center space-y-5">
@@ -48,7 +67,7 @@ export default function Home() {
               placeholder="I think that I am..."
               cols="20"
               rows="5"
-              maxlength="100"
+              maxLength="100"
             ></textarea>
           </div>
           <div className="border rounded-md p-4 flex flex-col items-center space-y-5">
