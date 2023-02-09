@@ -13,8 +13,10 @@ const formModel = {
 export default function Home() {
   const [formData, setFormData] = useState(formModel);
   const [isFormModelValid, setFormModelValidity] = useState(false);
+  
   const onSubmit = (e) => {
     e.preventDefault();
+    
   };
   const updateFormData = (e) => {
     const field = e.target.name;
