@@ -8,9 +8,9 @@ mongoose.set("strictQuery", false);
 
 class Database {
   constructor() {
-    this._connect();
+    this.connect();
   }
-  _connect() {
+  connect() {
     mongoose
       .connect(URI)
       .then(() => {
