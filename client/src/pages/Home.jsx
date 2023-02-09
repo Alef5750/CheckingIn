@@ -73,7 +73,7 @@ export default function Home() {
           </div>
           <div className="border rounded-md p-4 flex flex-col items-center space-y-5">
             <h2>What do you NEED from this place?</h2>
-            <select name="need" id="need">
+            <select name="need" id="need" onChange={updateFormData}>
               <option value="love">I need to be loved</option>
               <option value="belonging">I need to know that I belong</option>
               <option value="ok-ness">
