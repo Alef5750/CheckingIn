@@ -2,26 +2,31 @@ import bgImage from "images/landing-bg-morning.png";
 import { useState } from "react";
 
 const formModel = {
-  id: {},
-  timeStamp: {},
-  feeling: {},
-  thoughts: {},
-  judgements: {},
-  need: {},
+  // id: "",
+  timeStamp: "",
+  feeling: "happy",
+  thoughts: "",
+  judgements: "",
+  need: "love",
 };
 
 export default function Home() {
   const [formData, setFormData] = useState(formModel);
+  const [isDisabled, setIsDisabledToFalse] = useState(true);
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
+    console.log(formData);
   };
   const updateFormData = (e) => {
     const field = e.target.name;
     const value = e.target.value;
-    const newFormData = Object.assign(formModel, { [field]: value });
+
+    const newFormData = Object.assign(
+      formModel,
+      { [field]: value },
+      { timeStamp: Date.now() }
+    );
     setFormData(newFormData);
-    console.log(formData);
   };
   return (
     <div
@@ -31,7 +36,7 @@ export default function Home() {
       <h1 className="text-5xl">Good Morning Alef!</h1>
       <form
         className="flex flex-col items-center space-y-6"
-        onSubmit={() => setFormData()}
+        onSubmit={onSubmit}
       >
         <section className="flex space-x-3">
           <div className="border rounded-md p-4 flex flex-col items-center space-y-5">
@@ -82,7 +87,10 @@ export default function Home() {
             </select>
           </div>
         </section>
-        <button className="border-blue-600 bg-blue-600 rounded-full py-2 px-6 text-white font-semibold">
+        <button
+          disabled={isDisabled}
+          className="border-blue-600 bg-blue-600 rounded-full py-2 px-6 text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+        >
           SUBMIT
         </button>
       </form>

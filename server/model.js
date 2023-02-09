@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 model.exports = class Entry {
   constructor() {
     const entrySchema = new mongoose.Schema({
-      id: { type: Number, require: true },
+      // id: { type: Number, require: true },
       timeStamp: { type: Number, require: true },
       feeling: { type: String, require: true },
       thoughts: { type: String, require: true },
