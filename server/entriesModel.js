@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-model.exports = class Entry {
+module.exports = class Entry {
   constructor() {
     const entrySchema = new mongoose.Schema({
       // id: { type: Number, require: true },
@@ -16,6 +16,7 @@ model.exports = class Entry {
   async addNewEntry(newEntryInfo) {
     try {
       const newEntry = await this.EntryModel.create(newEntryInfo);
+      console.log(`newEntry= ${newEntry}`);
       return newEntry;
     } catch (err) {
       console.log(err);

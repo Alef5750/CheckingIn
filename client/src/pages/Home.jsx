@@ -20,12 +20,12 @@ export default function Home() {
   const submitCheckin = () => {
     axios
       .post(`${backendUrl}/entries`, currentFormData)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      // .then(function (response) {
+      //   console.log(response);
+      // })
+      // .catch(function (error) {
+      //   console.log(error);
+      // });
   };
   const onSubmit = (e) => {
     e.preventDefault();
