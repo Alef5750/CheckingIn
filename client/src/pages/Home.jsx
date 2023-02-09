@@ -19,7 +19,7 @@ export default function Home() {
 
   const submitCheckin = () => {
     axios
-      .post(`${backendUrl}/submissions`, currentFormData)
+      .post(`${backendUrl}/entries`, currentFormData)
       .then(function (response) {
         console.log(response);
       })

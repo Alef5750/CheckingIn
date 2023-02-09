@@ -17,9 +17,9 @@ app.use(
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Create a new Submission
-app.post("/submissions", (req, res) => {
-  const newSubmission = req.body;
+// Create a new Entry
+app.post("/entries", (req, res) => {
+  const newEntry = req.body;
   res.send("Got a POST request");
 });
 
