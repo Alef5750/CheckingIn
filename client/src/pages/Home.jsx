@@ -2,7 +2,7 @@ import axios from "axios";
 import bgImage from "images/landing-bg-morning.png";
 import { useState } from "react";
 
-const backendUrl = "http://localhost:5000/";
+const backendUrl = "http://localhost:5000";
 
 const formModel = {
   // id: "",
