@@ -17,7 +17,6 @@ export default function Home() {
     console.log(e);
   };
   const updateFormData = (e) => {
-    console.log(formData);
     const field = e.target.name;
     const value = e.target.value;
     const newFormData = Object.assign(formModel, { [field]: value });
@@ -56,6 +55,7 @@ export default function Home() {
               cols="20"
               rows="5"
               maxLength="100"
+              onChange={updateFormData}
             ></textarea>
           </div>
           <div className="border rounded-md p-4 flex flex-col items-center space-y-5">
