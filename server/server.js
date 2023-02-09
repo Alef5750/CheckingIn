@@ -3,8 +3,9 @@ const app = express();
 const port = 5000;
 const initDatabase = require("./database");
 
-// set cors
+// CORS Middleware
 const cors = require("cors");
+const bodyParser = require("body-parser");
 app.use(
   cors({
     origin: true,
@@ -12,9 +13,13 @@ app.use(
   })
 );
 
-// Create a new Checkin
+// BODY PARSER Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Create a new Submission
 app.post("/submissions", (req, res) => {
-  console.log(req);
+  const newSubmission = req.body;
   res.send("Got a POST request");
 });
 
