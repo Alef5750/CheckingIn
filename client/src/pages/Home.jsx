@@ -1,5 +1,8 @@
+import axios from "axios";
 import bgImage from "images/landing-bg-morning.png";
 import { useState } from "react";
+
+const backendUrl = "http://localhost:5000/";
 
 const formModel = {
   // id: "",
@@ -11,12 +14,22 @@ const formModel = {
 };
 
 export default function Home() {
-  const [formData, setFormData] = useState(formModel);
+  const [currentFormData, setFormData] = useState(formModel);
   const [isFormModelValid, setFormModelValidity] = useState(false);
-  
+
+  const submitCheckin = () => {
+    axios
+      .post(`${backendUrl}/submissions`, currentFormData)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
   const onSubmit = (e) => {
     e.preventDefault();
-    
+    submitCheckin();
   };
   const updateFormData = (e) => {
     const field = e.target.name;
@@ -31,7 +44,7 @@ export default function Home() {
     updateFormValidity();
   };
   const updateFormValidity = () => {
-    const isValid = Object.values(formData).every(
+    const isValid = Object.values(currentFormData).every(
       (value) => !!value.toString().length
     );
     setFormModelValidity(isValid);
