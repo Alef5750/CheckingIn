@@ -68,6 +68,7 @@ export default function Home() {
               cols="20"
               rows="5"
               maxLength="100"
+              onChange={updateFormData}
             ></textarea>
           </div>
           <div className="border rounded-md p-4 flex flex-col items-center space-y-5">
