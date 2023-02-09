@@ -12,10 +12,9 @@ const formModel = {
 
 export default function Home() {
   const [formData, setFormData] = useState(formModel);
-  const [isDisabled, setIsDisabledToFalse] = useState(true);
+  const [isFormModelValid, setFormModelValidity] = useState(false);
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
   };
   const updateFormData = (e) => {
     const field = e.target.name;
@@ -27,6 +26,13 @@ export default function Home() {
       { timeStamp: Date.now() }
     );
     setFormData(newFormData);
+    updateFormValidity();
+  };
+  const updateFormValidity = () => {
+    const isValid = Object.values(formData).every(
+      (value) => !!value.toString().length
+    );
+    setFormModelValidity(isValid);
   };
   return (
     <div
@@ -88,7 +94,7 @@ export default function Home() {
           </div>
         </section>
         <button
-          disabled={isDisabled}
+          disabled={!isFormModelValid}
           className="border-blue-600 bg-blue-600 rounded-full py-2 px-6 text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
         >
           SUBMIT
