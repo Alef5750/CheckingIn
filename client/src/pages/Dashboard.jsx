@@ -26,6 +26,8 @@ export default function Dashboard() {
             <Entry
               feeling={entry.feeling}
               thoughts={entry.thoughts}
+              judgements={entry.judgements}
+              need={entry.need}
               key={entry._id}
             />
           ))
