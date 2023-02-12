@@ -5,7 +5,6 @@ import { useState } from "react";
 const backendUrl = "http://localhost:5000";
 
 const formModel = {
-  // id: "",
   timeStamp: "",
   feeling: "happy",
   thoughts: "",
@@ -20,10 +19,10 @@ export default function Home() {
   const submitCheckin = () => {
     axios
       .post(`${backendUrl}/entries`, currentFormData)
-      .then(function (response) {
+      .then((response) => {
         console.log(response);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   };
