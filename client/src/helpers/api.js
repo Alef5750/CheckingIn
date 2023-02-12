@@ -2,7 +2,7 @@ import axios from "axios";
 
 const backendUrl = "http://localhost:5000";
 
-export const submitCheckin = async (currentFormData) => {
+export const submitEntry = async (currentFormData) => {
   await axios
     .post(`${backendUrl}/entries`, currentFormData)
     .then((response) => {

@@ -1,4 +1,4 @@
-import { submitCheckin } from "helpers/api";
+import { submitEntry } from "helpers/api";
 import bgImage from "images/landing-bg-morning.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +18,7 @@ export default function Home() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const response = submitCheckin(currentFormData);
+    const response = submitEntry(currentFormData);
     if (response) {
       navigate("/dashboard");
     }
