@@ -13,3 +13,15 @@ export const submitEntry = async (currentFormData) => {
       console.log(error);
     });
 };
+
+export const getEntries = async () => {
+  await axios
+    .post(`${backendUrl}/entries`)
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
