@@ -13,14 +13,8 @@ export default function Dashboard() {
     fetchEntries();
   }, []);
 
-  // const entryCard = () => {
-  //   if (entries) {
-  //     console.log(entries);
-  //     entries.map((entry) => <Entry />);
-  //   }
-  // };
   return (
-    <div>
+    <div className="grid grid-cols-3 gap-6 mt-8 mx-8">
       {entries
         ? entries.map((entry) => (
             <Entry
