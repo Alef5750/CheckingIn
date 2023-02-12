@@ -1,9 +1,35 @@
 import { getEntries } from "helpers/api";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Entry from "components/Entry";
 
 export default function Dashboard() {
+  const [entries, setEntries] = useState(null);
   useEffect(() => {
-    getEntries();
+    const fetchEntries = async () => {
+      await getEntries().then((res) => {
+        setEntries(res.data);
+      });
+    };
+    fetchEntries();
   }, []);
-  return <h1>DASHBOARD</h1>;
+
+  // const entryCard = () => {
+  //   if (entries) {
+  //     console.log(entries);
+  //     entries.map((entry) => <Entry />);
+  //   }
+  // };
+  return (
+    <div>
+      {entries
+        ? entries.map((entry) => (
+            <Entry
+              feeling={entry.feeling}
+              thoughts={entry.thoughts}
+              key={entry._id}
+            />
+          ))
+        : ""}
+    </div>
+  );
 }

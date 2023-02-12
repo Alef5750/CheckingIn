@@ -1,8 +1,8 @@
-export default function Entry() {
-    
+export default function Entry({ feeling, thoughts }) {
   return (
-    <div>
-      
+    <div className="p-4 m-8 bg-yellow-300">
+      <h1>{feeling}</h1>
+      <p>{thoughts}</p>
     </div>
-  )
+  );
 }

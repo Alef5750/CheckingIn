@@ -16,13 +16,8 @@ export const submitEntry = async (currentFormData) => {
 };
 
 export const getEntries = async () => {
-  await axios
-    .get(`${backendUrl}/entries`)
-    .then((response) => {
-      console.log(response);
-      return response;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  const response = await axios.get(`${backendUrl}/entries`);
+  if (response) {
+    return response;
+  }
 };
