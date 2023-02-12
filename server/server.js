@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const port = 5000;
 const initDatabase = require("./database");
-const { addNewEntry } = require("./entriesController");
+const { addNewEntry, getEntries } = require("./entriesController");
 
 // CORS Middleware
 const cors = require("cors");
@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.post("/entries", addNewEntry);
+app.get("/entries", getEntries);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

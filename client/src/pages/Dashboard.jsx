@@ -1,3 +1,9 @@
+import { getEntries } from "helpers/api";
+import { useEffect } from "react";
+
 export default function Dashboard() {
-  return <h1>Dashboard</h1>;
+  useEffect(() => {
+    getEntries();
+  }, []);
+  return <h1>DASHBOARD</h1>;
 }

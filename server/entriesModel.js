@@ -15,8 +15,17 @@ module.exports = class Entry {
   async addNewEntry(newEntryInfo) {
     try {
       const newEntry = await this.EntryModel.create(newEntryInfo);
-      console.log(`newEntry= ${newEntry}`);
       return newEntry;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+  }
+
+  async getEntries() {
+    try {
+      const entries = await this.EntryModel.find();
+      return entries;
     } catch (err) {
       console.log(err);
       return false;
