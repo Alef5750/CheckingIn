@@ -1,6 +1,7 @@
 import axios from "axios";
 import bgImage from "images/landing-bg-morning.png";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const backendUrl = "http://localhost:5000";
 
@@ -15,12 +16,14 @@ const formModel = {
 export default function Home() {
   const [currentFormData, setFormData] = useState(formModel);
   const [isFormModelValid, setFormModelValidity] = useState(false);
+  const navigate = useNavigate();
 
-  const submitCheckin = () => {
-    axios
+  const submitCheckin = async () => {
+    await axios
       .post(`${backendUrl}/entries`, currentFormData)
       .then((response) => {
         console.log(response);
+        navigate("/dashboard");
       })
       .catch((error) => {
         console.log(error);

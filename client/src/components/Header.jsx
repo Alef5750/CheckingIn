@@ -5,7 +5,7 @@ export default function Header() {
   const navigateHome = () => {
     navigate("/");
   };
-  const navigateToDashBoard = () => {
+  const navigateToDashboard = () => {
     navigate("/dashboard");
   };
   return (
@@ -17,7 +17,9 @@ export default function Header() {
           className="h-16 w-16 rounded-full"
         />
       </button>
-      <button className="">My Dashboard</button>
+      <button onClick={navigateToDashboard} className="">
+        My Dashboard
+      </button>
     </header>
   );
 }
