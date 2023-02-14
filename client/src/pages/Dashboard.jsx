@@ -20,19 +20,21 @@ export default function Dashboard() {
     setIsDeleteModalShowing(true);
   };
   return (
-    <div className="grid grid-cols-3 gap-6 mt-8 mx-8">
-      {entries
-        ? entries.map((entry) => (
-            <Entry
-              feeling={entry.feeling}
-              thoughts={entry.thoughts}
-              judgements={entry.judgements}
-              need={entry.need}
-              key={entry._id}
-              onXclick={showDeleteModal}
-            />
-          ))
-        : ""}
+    <div>
+      <div className="grid grid-cols-3 gap-6 mt-8 mx-8">
+        {entries
+          ? entries.map((entry) => (
+              <Entry
+                feeling={entry.feeling}
+                thoughts={entry.thoughts}
+                judgements={entry.judgements}
+                need={entry.need}
+                key={entry._id}
+                onXclick={showDeleteModal}
+              />
+            ))
+          : ""}
+      </div>
       <DeleteEntryModal isShowing={isDeleteModalShowing} />
     </div>
   );
