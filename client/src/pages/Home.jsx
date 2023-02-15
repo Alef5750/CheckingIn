@@ -20,7 +20,7 @@ export default function Home() {
     e.preventDefault();
     await submitEntry(currentFormData).then((res) => {
       console.log(res);
-      if (res) {
+      if (res.status === 200) {
         navigate("/dashboard");
       }
     });
