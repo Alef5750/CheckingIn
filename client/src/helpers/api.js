@@ -3,11 +3,12 @@ import axios from "axios";
 const backendUrl = "http://localhost:5000";
 
 export async function submitEntry(currentFormData) {
+  const response = await axios.post(`${backendUrl}/entries`, currentFormData);
   try {
-    const response = await axios.post(`${backendUrl}/entries`, currentFormData);
     return response;
   } catch (e) {
     console.log(e);
+    response.status(400).send("Unable to GET entries");
   }
 }
 
@@ -17,5 +18,6 @@ export async function getEntries() {
     return response;
   } catch (e) {
     console.log(e);
+    response.status(400).send("Unable to GET entries");
   }
 }
