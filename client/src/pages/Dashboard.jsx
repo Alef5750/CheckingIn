@@ -9,9 +9,8 @@ export default function Dashboard() {
 
   useEffect(() => {
     const fetchEntries = async () => {
-      await getEntries().then((res) => {
-        setEntries(res.data);
-      });
+      const res = await getEntries();
+      if (res.status === 200) setEntries(res.data);
     };
     fetchEntries();
   }, []);

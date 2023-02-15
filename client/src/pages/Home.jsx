@@ -18,13 +18,11 @@ export default function Home() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await submitEntry(currentFormData).then((res) => {
-      console.log(res);
-      if (res.status === 200) {
-        navigate("/dashboard");
-      }
-    });
+    const res = await submitEntry(currentFormData);
+    console.log(res);
+    if (res.status === 200) navigate("/dashboard");
   };
+
   const updateFormData = (e) => {
     const field = e.target.name;
     const value = e.target.value;
