@@ -1,11 +1,4 @@
-export default function Entry({
-  feeling,
-  thoughts,
-  judgements,
-  need,
-  setIsShowing,
-  onXclick,
-}) {
+export default function Entry({ entry, onXclick }) {
   return (
     <div className="p-4 bg-yellow-300 flex flex-col">
       <button
@@ -14,10 +7,10 @@ export default function Entry({
       >
         X
       </button>
-      <h1>FEELING: {feeling}</h1>
-      <p>THOUGHTS: {thoughts}</p>
-      <p>JUDGMENTS: {judgements}</p>
-      <p>NEED: {need}</p>
+      <h1>FEELING: {entry.feeling}</h1>
+      <p>THOUGHTS: {entry.thoughts}</p>
+      <p>JUDGMENTS: {entry.judgements}</p>
+      <p>NEED: {entry.need}</p>
     </div>
   );
 }
