@@ -16,12 +16,14 @@ export default function Home() {
   const [isFormModelValid, setFormModelValidity] = useState(false);
   const navigate = useNavigate();
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const response = submitEntry(currentFormData);
-    if (response) {
-      navigate("/dashboard");
-    }
+    await submitEntry(currentFormData).then((res) => {
+      console.log(res);
+      if (res) {
+        navigate("/dashboard");
+      }
+    });
   };
   const updateFormData = (e) => {
     const field = e.target.name;
