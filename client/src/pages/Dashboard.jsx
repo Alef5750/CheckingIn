@@ -18,6 +18,9 @@ export default function Dashboard() {
   const showDeleteModal = () => {
     setIsDeleteModalShowing(true);
   };
+  const hideDeleteModal = () => {
+    setIsDeleteModalShowing(false);
+  };
   return (
     <div>
       <div className="grid grid-cols-3 gap-6 my-8 mx-8">
@@ -27,7 +30,10 @@ export default function Dashboard() {
             ))
           : ""}
       </div>
-      <DeleteEntryModal isShowing={isDeleteModalShowing} />
+      <DeleteEntryModal
+        isShowing={isDeleteModalShowing}
+        onCancel={hideDeleteModal}
+      />
     </div>
   );
 }
