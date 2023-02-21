@@ -6,6 +6,7 @@ import DeleteEntryModal from "components/DeleteEntryModal";
 export default function Dashboard() {
   const [entries, setEntries] = useState(null);
   const [isDeleteModalShowing, setIsDeleteModalShowing] = useState(false);
+  const [idToDelete, setIdToDelete] = useState(null);
 
   useEffect(() => {
     const fetchEntries = async () => {
@@ -16,14 +17,14 @@ export default function Dashboard() {
   }, []);
 
   const showDeleteModal = (id) => {
-    console.log(id);
+    setIdToDelete(id);
     setIsDeleteModalShowing(true);
   };
   const hideDeleteModal = () => {
     setIsDeleteModalShowing(false);
   };
-  const logData = (data) => {
-    console.log(data);
+  const deleteEntry = (id) => {
+    console.log(`now deleting entry with id ${id}`);
   };
   return (
     <div>
@@ -37,7 +38,8 @@ export default function Dashboard() {
       <DeleteEntryModal
         isShowing={isDeleteModalShowing}
         onCancel={hideDeleteModal}
-        func={logData}
+        idToDelete={idToDelete}
+        onDelete={deleteEntry}
       />
     </div>
   );

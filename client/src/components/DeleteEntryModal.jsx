@@ -1,4 +1,12 @@
-export default function DeleteEntryModal({ isShowing, onCancel }) {
+export default function DeleteEntryModal({
+  isShowing,
+  onCancel,
+  idToDelete,
+  onDelete,
+}) {
+  const onDeleteClick = () => {
+    onDelete(idToDelete);
+  };
   return (
     <div className="w-full h-full">
       {isShowing ? (
@@ -7,7 +15,10 @@ export default function DeleteEntryModal({ isShowing, onCancel }) {
             ARE YOU SURE YOU WANT TO DELETE THIS ENTRY?
           </h1>
           <span className="flex justify-center space-x-4 w-full">
-            <button className="bg-red-500 rounded-full text-white font-semibold px-3">
+            <button
+              onClick={onDeleteClick}
+              className="bg-red-500 rounded-full text-white font-semibold px-3"
+            >
               Delete
             </button>
             <button
