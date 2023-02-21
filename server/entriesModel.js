@@ -31,4 +31,15 @@ module.exports = class Entry {
       return false;
     }
   }
+
+  async deleteEntryById(id) {
+    try {
+      const objId = mongoose.Types.ObjectId(id);
+      const entry = await this.EntryModel.deleteOne({ _id: objId });
+      return entry;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+  }
 };

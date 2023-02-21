@@ -20,4 +20,15 @@ const addNewEntry = async (req, res) => {
   }
 };
 
-module.exports = { getEntries, addNewEntry };
+const deleteEntryById = async (req, res) => {
+  const id = req.params.id;
+  const deletedEntry = await entry.deleteEntryById(id);
+  console.log(deletedEntry);
+  if (deletedEntry) {
+    res.status(200).send(deletedEntry);
+  } else {
+    res.status(400).send("Could not delete entry");
+  }
+};
+
+module.exports = { getEntries, addNewEntry, deleteEntryById };

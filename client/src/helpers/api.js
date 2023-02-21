@@ -21,3 +21,13 @@ export async function getEntries() {
     response.status(400).send("Unable to GET entries");
   }
 }
+
+export async function deleteEntryById(id) {
+  const response = await axios.delete(`${backendUrl}/entries/${id}`);
+  try {
+    return response;
+  } catch (e) {
+    console.log(e);
+    response.status(400).send("Unable to GET entries");
+  }
+}

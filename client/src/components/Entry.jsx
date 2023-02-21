@@ -5,7 +5,7 @@ export default function Entry({ entry, onXclick }) {
   return (
     <div className="p-4 bg-yellow-300 flex flex-col">
       <button onClick={emitId} className="self-end text-red-500 font-extrabold">
-        X
+        X {entry._id}
       </button>
       <h1>FEELING: {entry.feeling}</h1>
       <p>THOUGHTS: {entry.thoughts}</p>

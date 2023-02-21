@@ -1,4 +1,4 @@
-import { getEntries } from "helpers/api";
+import { deleteEntryById, getEntries } from "helpers/api";
 import { useEffect, useState } from "react";
 import Entry from "components/Entry";
 import DeleteEntryModal from "components/DeleteEntryModal";
@@ -23,8 +23,10 @@ export default function Dashboard() {
   const hideDeleteModal = () => {
     setIsDeleteModalShowing(false);
   };
-  const deleteEntry = (id) => {
-    console.log(`now deleting entry with id ${id}`);
+  const deleteEntry = async () => {
+    const res = await deleteEntryById(idToDelete);
+    console.log(res);
+    if (res.status === 200 && res.data.deletedCount === 1) console.log(res);
   };
   return (
     <div>
