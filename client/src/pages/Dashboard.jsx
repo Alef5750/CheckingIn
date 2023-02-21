@@ -15,11 +15,15 @@ export default function Dashboard() {
     fetchEntries();
   }, []);
 
-  const showDeleteModal = () => {
+  const showDeleteModal = (id) => {
+    console.log(id);
     setIsDeleteModalShowing(true);
   };
   const hideDeleteModal = () => {
     setIsDeleteModalShowing(false);
+  };
+  const logData = (data) => {
+    console.log(data);
   };
   return (
     <div>
@@ -33,6 +37,7 @@ export default function Dashboard() {
       <DeleteEntryModal
         isShowing={isDeleteModalShowing}
         onCancel={hideDeleteModal}
+        func={logData}
       />
     </div>
   );

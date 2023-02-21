@@ -1,10 +1,10 @@
 export default function Entry({ entry, onXclick }) {
+  const emitId = () => {
+    onXclick(entry._id);
+  };
   return (
     <div className="p-4 bg-yellow-300 flex flex-col">
-      <button
-        onClick={onXclick}
-        className="self-end text-red-500 font-extrabold"
-      >
+      <button onClick={emitId} className="self-end text-red-500 font-extrabold">
         X
       </button>
       <h1>FEELING: {entry.feeling}</h1>
